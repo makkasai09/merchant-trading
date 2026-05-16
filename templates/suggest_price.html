@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Price Suggester - MerchantTrade</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 20px 20px;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            width: 500px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+        .result-card {
+            background: #f0f4f8;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+        .result-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        .price-range {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .price-box {
+            flex: 1;
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .price-box p { color: #666; font-size: 14px; margin-bottom: 5px; }
+        .price-box h3 { color: #e74c3c; font-size: 28px; }
+        .info-box {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .info-box p { color: #555; font-size: 15px; }
+        .info-box span { font-weight: bold; color: #2c3e50; }
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-primary { background: #e74c3c; color: white; }
+        .btn-secondary { background: #2c3e50; color: white; }
+        .buttons { text-align: center; margin-top: 20px; }
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #2c3e50;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar h1 { color: white; font-size: 22px; }
+        .navbar a { color: white; text-decoration: none; margin-left: 20px; }
+        .ai-badge {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <h1>🤝 MerchantTrade</h1>
+        <div>
+            <a href="/">Home</a>
+            <a href="/dashboard">Dashboard</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>🤖 AI Price Suggestion</h2>
+
+        <div class="result-card">
+            <span class="ai-badge">✨ Powered by AI</span>
+            <h3>{{ title }} — {{ category }}</h3>
+            <h3>Quantity: {{ quantity }}</h3>
+
+            <div style="white-space: pre-line; color: #555; 
+                        font-size: 16px; line-height: 1.8;
+                        background: white; padding: 20px; 
+                        border-radius: 10px; margin-top: 15px;">
+                {{ suggestion }}
+            </div>
+        </div>
+
+        <div class="buttons">
+            <a href="/post_stock" class="btn btn-primary">Post This Stock 📦</a>
+            <a href="/dashboard" class="btn btn-secondary">Back to Dashboard</a>
+        </div>
+    </div>
+
+</body>
+</html>

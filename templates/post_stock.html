@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Stock - MerchantTrade</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 20px 20px;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            width: 500px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+        .form-group { margin-bottom: 20px; }
+        label {
+            display: block;
+            color: #555;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+        textarea { height: 100px; resize: vertical; }
+        .btn {
+            width: 100%;
+            padding: 14px;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .btn:hover { background: #c0392b; }
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #2c3e50;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar h1 { color: white; font-size: 22px; }
+        .navbar a { color: white; text-decoration: none; margin-left: 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <h1>🤝 MerchantTrade</h1>
+        <div>
+            <a href="/">Home</a>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>📦 Post Your Excess Stock</h2>
+
+        <form method="POST">
+            <div class="form-group">
+                <label>📦 Stock Title</label>
+                <input type="text" name="title" 
+                       placeholder="e.g. Notebooks, Rice Bags, Pens" required>
+            </div>
+
+            <div class="form-group">
+                <label>📝 Description</label>
+                <textarea name="description" 
+                          placeholder="Describe your stock — condition, brand, etc." 
+                          required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>🔢 Quantity</label>
+                <input type="text" name="quantity" 
+                       placeholder="e.g. 200 pieces, 50 kg" required>
+            </div>
+
+            <div class="form-group">
+                <label>💰 Price (₹)</label>
+                <input type="number" name="price" 
+                       placeholder="Enter price in rupees" required>
+            </div>
+
+            <div class="form-group">
+                <label>🏷️ Category</label>
+                <select name="category" required>
+                    <option value="">Select category</option>
+                    <option value="Stationery">📚 Stationery</option>
+                    <option value="Grocery">🛒 Grocery</option>
+                    <option value="Electronics">⚡ Electronics</option>
+                    <option value="Clothing">👗 Clothing</option>
+                    <option value="Food">🍎 Food</option>
+                    <option value="Medicine">💊 Medicine</option>
+                    <option value="Hardware">🔧 Hardware</option>
+                    <option value="Other">📦 Other</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn">Post Stock 🚀</button>
+
+            
+        </form>
+    </div>
+
+</body>
+</html>
