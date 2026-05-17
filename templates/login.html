@@ -4,102 +4,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - MerchantTrade</title>
+    <link rel="stylesheet" href="/static/style.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #2c3e50, #3498db);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
+            background: linear-gradient(-45deg, #0a0a0f, #1a1a2e, #16213e, #0f3460);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
         }
-        .container {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
+        .form-container {
             width: 90%;
-            max-width: 400px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            max-width: 420px;
         }
-        h2 {
+        .form-header {
             text-align: center;
-            color: #2c3e50;
-            margin-bottom: 30px;
-            font-size: 28px;
+            margin-bottom: 35px;
         }
-        .form-group { margin-bottom: 20px; }
-        label {
-            display: block;
-            color: #555;
+        .form-header h2 {
+            font-size: 32px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff, #667eea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-bottom: 8px;
+        }
+        .form-header p {
+            color: rgba(255,255,255,0.4);
             font-size: 14px;
-            font-weight: bold;
         }
-        input {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: border-color 0.3s;
-        }
-        input:focus {
-            outline: none;
-            border-color: #3498db;
-        }
-        .btn {
+        .submit-btn {
             width: 100%;
             padding: 14px;
-            background: #e74c3c;
+            background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
             border: none;
-            border-radius: 8px;
-            font-size: 18px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
             cursor: pointer;
             margin-top: 10px;
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
         }
-        .btn:hover { background: #c0392b; }
-        .register-link {
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102,126,234,0.4);
+        }
+        .bottom-link {
             text-align: center;
-            margin-top: 20px;
-            color: #666;
+            margin-top: 25px;
+            color: rgba(255,255,255,0.4);
+            font-size: 14px;
         }
-        .register-link a { color: #3498db; text-decoration: none; }
+        .bottom-link a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .bottom-link a:hover { text-decoration: underline; }
         .error {
-            background: #ffe0e0;
+            background: rgba(231, 76, 60, 0.1);
+            border: 1px solid rgba(231, 76, 60, 0.3);
             color: #e74c3c;
-            padding: 10px;
-            border-radius: 8px;
+            padding: 12px;
+            border-radius: 10px;
             margin-bottom: 20px;
             text-align: center;
+            font-size: 14px;
         }
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: #2c3e50;
-            padding: 15px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 36px;
         }
-        .navbar h1 { color: white; font-size: 22px; }
-        .navbar a { color: white; text-decoration: none; margin-left: 20px; }
     </style>
 </head>
 <body>
-
-    <div class="navbar">
-        <h1>🤝 MerchantTrade</h1>
-        <div>
-            <a href="/">Home</a>
-            <a href="/register">Register</a>
+    <div class="form-container">
+        <div class="logo">🤝</div>
+        <div class="form-header">
+            <h2>Welcome Back!</h2>
+            <p>Login to your MerchantTrade account</p>
         </div>
-    </div>
-
-    <div class="container">
-        <h2>👋 Welcome Back!</h2>
 
         {% if error %}
         <div class="error">{{ error }}</div>
@@ -110,19 +99,16 @@
                 <label>📱 Phone Number</label>
                 <input type="text" name="phone" placeholder="Enter your phone number" required>
             </div>
-
             <div class="form-group">
                 <label>🔒 Password</label>
                 <input type="password" name="password" placeholder="Enter your password" required>
             </div>
-
-            <button type="submit" class="btn">Login 🚀</button>
+            <button type="submit" class="submit-btn">Login 🚀</button>
         </form>
 
-        <div class="register-link">
+        <div class="bottom-link">
             New merchant? <a href="/register">Register here</a>
         </div>
     </div>
-
 </body>
 </html>

@@ -4,76 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Post Stock - MerchantTrade</title>
+    <link rel="stylesheet" href="/static/style.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #2c3e50, #3498db);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
+            background: linear-gradient(-45deg, #0a0a0f, #1a1a2e, #16213e, #0f3460);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
             padding: 80px 20px 20px;
         }
-        .container {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
+        .form-container {
             width: 90%;
-            max-width: 400px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            max-width: 500px;
         }
-        h2 {
+        .form-header {
             text-align: center;
-            color: #2c3e50;
-            margin-bottom: 30px;
-            font-size: 28px;
+            margin-bottom: 35px;
         }
-        .form-group { margin-bottom: 20px; }
-        label {
-            display: block;
-            color: #555;
+        .form-header h2 {
+            font-size: 32px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff, #667eea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-bottom: 8px;
+        }
+        .form-header p {
+            color: rgba(255,255,255,0.4);
             font-size: 14px;
-            font-weight: bold;
         }
-        input, select, textarea {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: border-color 0.3s;
+        textarea {
+            height: 100px;
+            resize: vertical;
         }
-        input:focus, select:focus, textarea:focus {
-            outline: none;
-            border-color: #3498db;
-        }
-        textarea { height: 100px; resize: vertical; }
-        .btn {
+        .submit-btn {
             width: 100%;
             padding: 14px;
-            background: #e74c3c;
+            background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
             border: none;
-            border-radius: 8px;
-            font-size: 18px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
             cursor: pointer;
             margin-top: 10px;
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
         }
-        .btn:hover { background: #c0392b; }
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: #2c3e50;
-            padding: 15px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102,126,234,0.4);
         }
-        .navbar h1 { color: white; font-size: 22px; }
-        .navbar a { color: white; text-decoration: none; margin-left: 20px; }
+        .bottom-link {
+            text-align: center;
+            margin-top: 25px;
+            color: rgba(255,255,255,0.4);
+            font-size: 14px;
+        }
+        .bottom-link a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 36px;
+        }
     </style>
 </head>
 <body>
@@ -87,35 +87,35 @@
         </div>
     </div>
 
-    <div class="container">
-        <h2>📦 Post Your Excess Stock</h2>
+    <div class="form-container">
+        <div class="logo">📦</div>
+        <div class="form-header">
+            <h2>Post Your Stock!</h2>
+            <p>List your excess inventory for nearby merchants</p>
+        </div>
 
         <form method="POST">
             <div class="form-group">
                 <label>📦 Stock Title</label>
-                <input type="text" name="title" 
+                <input type="text" name="title"
                        placeholder="e.g. Notebooks, Rice Bags, Pens" required>
             </div>
-
             <div class="form-group">
                 <label>📝 Description</label>
-                <textarea name="description" 
-                          placeholder="Describe your stock — condition, brand, etc." 
+                <textarea name="description"
+                          placeholder="Describe your stock — condition, brand, etc."
                           required></textarea>
             </div>
-
             <div class="form-group">
                 <label>🔢 Quantity</label>
-                <input type="text" name="quantity" 
+                <input type="text" name="quantity"
                        placeholder="e.g. 200 pieces, 50 kg" required>
             </div>
-
             <div class="form-group">
                 <label>💰 Price (₹)</label>
-                <input type="number" name="price" 
+                <input type="number" name="price"
                        placeholder="Enter price in rupees" required>
             </div>
-
             <div class="form-group">
                 <label>🏷️ Category</label>
                 <select name="category" required>
@@ -130,11 +130,12 @@
                     <option value="Other">📦 Other</option>
                 </select>
             </div>
-
-            <button type="submit" class="btn">Post Stock 🚀</button>
-
-            
+            <button type="submit" class="submit-btn">Post Stock 🚀</button>
         </form>
+
+        <div class="bottom-link">
+            <a href="/dashboard">← Back to Dashboard</a>
+        </div>
     </div>
 
 </body>
